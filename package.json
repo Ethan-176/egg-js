@@ -34,9 +34,11 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "EGG_SERVER_ENV=local egg-scripts start --daemon --title=egg-server-tradeoffer-bot",
-    "stop": "egg-scripts stop --title=egg-server-tradeoffer-bot",
+    "start": "EGG_SERVER_ENV=production egg-scripts start --daemon --title=egg-js-service",
+    "prod-model": "EGG_SERVER_ENV=productionModel egg-bin dev",
+    "stop": "egg-scripts stop --title=egg-js-service",
     "dev": "EGG_SERVER_ENV=local egg-bin dev",
+    "model": "EGG_SERVER_ENV=localModel egg-bin dev",
     "test": "npm run lint -- --fix && npm run test:local",
     "test:local": "egg-bin test",
     "cov": "egg-bin cov",

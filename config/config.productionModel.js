@@ -7,45 +7,40 @@ module.exports = (appInfo) => {
    **/
   const config = (exports = {});
   // 用于cookie签名的密钥，应更改为您自己的并保持安全
-  config.interfaceUrl = {
-    // 本地化接口地址配置
-    // local: "http://127.0.0.1:7003",
-    // 线上接口地址配置
-  };
   config.logger = {
-    level: "INFO", // 日志级别
+    level: "INFO",  // 日志级别
     dir: `${appInfo.baseDir}/logs`,
   };
   config.customLogger = {
     scheduleLogger: {
-      file: `${appInfo.baseDir}/logs/egg-schedule.log`, // 不生成文件
+      file: `${appInfo.baseDir}/egg-schedule.log`, // 不生成文件
       level: "NONE", // 禁用日志
     },
   };
-
   config.cluster = {
     listen: {
       port: 7001,
-      hostname: "127.0.0.1", // 不建议设置 hostname 为 '0.0.0.0'，它将允许来自外部网络和来源的连接，请在知晓风险的情况下使用
+      hostname: "127.0.0.1",
     },
   };
   config.redis = {
     client: {
-      port: 6379,
-      host: "127.0.0.1",
-      password: "",
+      port: 6379, // Redis port
+      host: "xxx.xx.xx.xx", // Redis host
+      password: "", // Redis password
       db: 0,
     },
   };
 
+  // 数据库连接信息
   config.sequelize = {
-    logging: true, // 是否打印sequelize日志
+    logging: false,  // 是否打印sequelize日志
     dialect: "mysql",
-    host: "127.0.0.1",
+    host: "", // 正式环境数据库地址
     port: 3306,
-    username: "root",
-    password: "1764753522",
-    database: "mysql", // 数据库名称
+    username: "",
+    password: "",
+    database: "mysql", // 数据库名
     timezone: "+08:00", // 保存为本地时区
     dialectOptions: {
       dateStrings: true,

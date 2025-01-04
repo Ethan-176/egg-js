@@ -4,11 +4,12 @@ module.exports = {
     enable: true,
     package: "egg-router-plus",
   },
-  // 引入 egg-sequelize
+  // ORM 框架
   sequelize: {
     enable: true,
     package: "egg-sequelize",
   },
+  // redis 插件
   redis: {
     enable: true,
     package: "egg-redis",
@@ -16,16 +17,14 @@ module.exports = {
   validate: {
     enable: true,
     package: "egg-validate",
-    //  https://github.com/node-modules/parameter/blob/master/README.md
+    // 使用示例  https://github.com/node-modules/parameter/blob/master/README.md
   },
   cors: {
     enable: true,
     package: "egg-cors",
   },
-  
   jwt: {
     enable: true,
     package: "egg-jwt",
   },
-  
 };

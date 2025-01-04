@@ -41,23 +41,22 @@ class AppBootHook {
     const env = this.app.config?.env;
     const { model, logger } = this.app;
     
-    if (["prodModel", "devModel", "localModel"].includes(env)) {
+    if (["productionModel", "localModel"].includes(env)) {
       logger.info("同步数据库模式");
-      await model.sync({ alter: true });
-      await Promise.all([
-        model.query("ALTER TABLE user_check_in_events AUTO_INCREMENT = 10001;"),
-        model.query("ALTER TABLE activity AUTO_INCREMENT = 50001;"),
-      ]);
-    } else {
-      logger.info("检查数据库模式");
+      
+      try {
+        await model.sync({ alter: true });
+        
+        logger.info("数据库同步完成");
+      } catch (e) {
+        logger.error("同步数据库失败:", e);
+      }
     }
   }
   
   async didReady() {
     this.initializeSocketIo();
   }
-  
-
   
   initializeSocketIo() {
     const app = this.app;
