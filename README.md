@@ -51,7 +51,7 @@
 
 1. 克隆代码库：
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:wxx1764753522/egg-js.git
    ```
 
 2. 进入项目目录：
@@ -83,6 +83,17 @@ npm start
 npm stop
 ```
 
+### 同步数据库模式
+开发环境
+```bash
+npm run model
+```
+
+生产环境
+```bash
+npm run prod-model
+```
+
 ### 配置
 所有配置文件位于 `config` 目录中。可根据需求更新以下设置：
 - 数据库连接（MySQL）
@@ -96,7 +107,6 @@ npm stop
 - **config**: 存放配置文件。
 - **database**: 管理数据库模型和迁移文件。
 - **public**: 存放静态资源。
-- **test**: 包含测试用例。
 
 ## 贡献
 欢迎贡献代码！请 fork 此代码库并提交您的变更的 pull request。
