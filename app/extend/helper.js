@@ -12,21 +12,20 @@ function sha256EncryptWithSalt(data) {
 module.exports = {
   ...$Interface,
   sha256EncryptWithSalt,
-
-  SUM(...args) {
+  
+  Summation(...args) {
     // 如果第一个参数是数组，展开数组，否则直接使用参数
     const numbers = Array.isArray(args[0]) ? args[0] : args;
-
+    
     // 使用 reduce 累加，过滤掉不是数字的值
     return parseFloat(
-      numbers
+        numbers
         .reduce((sum, value) => {
           const num = Number(value); // 转换为数字
-          if (!isNaN(num)) {
-            // 累加，并确保保留两位小数精度
-            return sum + num;
-          }
-          return sum; // 如果不是数字，则跳过
+          if (!num || isNaN(num)) return sum;
+          
+          // 累加
+          return sum + num;
         }, 0)
         .toFixed(2),
     );
