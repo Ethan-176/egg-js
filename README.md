@@ -51,7 +51,7 @@
 
 1. 克隆代码库：
    ```bash
-   git clone git@github.com:wxx1764753522/egg-js.git
+   git clone git@github.com:Ethan-176/egg-js.git
    ```
 
 2. 进入项目目录：
