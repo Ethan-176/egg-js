@@ -16,13 +16,15 @@ module.exports = (appInfo) => {
     level: "INFO", // 日志级别
     dir: `${appInfo.baseDir}/logs`,
   };
+  config.jwt = {
+    secret: "your_jwt_secret_key",
+  };
   config.customLogger = {
     scheduleLogger: {
       file: `${appInfo.baseDir}/logs/egg-schedule.log`, // 不生成文件
       level: "NONE", // 禁用日志
     },
   };
-
   config.cluster = {
     listen: {
       port: 7001,

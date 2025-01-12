@@ -38,9 +38,7 @@ module.exports = (appInfo) => {
   };
   // add your middleware config here
   config.middleware = ["errorHandler"];
-  config.jwt = {
-    secret: "your_jwt_secret_key",
-  };
+
   // add your user config here
   const userConfig = {
     myAppName: 'egg.js',
