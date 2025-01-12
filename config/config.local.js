@@ -7,17 +7,19 @@ module.exports = (appInfo) => {
    **/
   const config = (exports = {});
   // 用于cookie签名的密钥，应更改为您自己的并保持安全
+  // use for cookie sign key, should change to your own and keep security
+  config.keys = appInfo.name + "_your_secret_key"; // 请更改为您自己的密钥
+  config.jwt = {
+    secret: "your_jwt_secret_key", // 请更改为您自己的JWT密钥
+  };
+  
   config.interfaceUrl = {
     // 本地化接口地址配置
     // local: "http://127.0.0.1:7003",
-    // 线上接口地址配置
   };
   config.logger = {
     level: "INFO", // 日志级别
     dir: `${appInfo.baseDir}/logs`,
-  };
-  config.jwt = {
-    secret: "your_jwt_secret_key",
   };
   config.customLogger = {
     scheduleLogger: {
