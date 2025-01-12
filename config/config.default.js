@@ -1,8 +1,5 @@
 /* eslint valid-jsdoc: "off" */
 
-/**
- * @param {Egg.EggAppInfo} appInfo app info
- */
 module.exports = () => {
   /**
    * built-in config
@@ -16,6 +13,7 @@ module.exports = () => {
     fileSize: "10mb",
     whitelist: [".json", ".jpg", ".jpeg", ".png", ".gif"],
   };
+  // noinspection JSUndefinedPropertyAssignment
   config.session = {
     key: "your_session_key",
     httpOnly: true,
